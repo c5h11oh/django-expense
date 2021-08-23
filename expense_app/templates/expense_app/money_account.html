@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table>
+    <tr>
+        <th>Type</th>
+        <th>Account Name</th>
+    </tr>
+{% for acc in money_accounts %}
+    <tr>
+        <td>{{ acc.account_type }}</td>
+        <td>{{ acc.name }}</td>
+    </tr>
+{% endfor %}
+</table>
+{% endblock %}
