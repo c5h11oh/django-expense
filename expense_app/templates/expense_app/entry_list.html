@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <table class="table table-striped">
+        <tr>
+            <th>Date</th>
+            <th>Category</th>
+            <th>Name</th>
+            <th>Amount</th>
+            <th>Detail</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    {% for entry in context %}
+        <tr>
+            <td>{{ entry.date }}</td>
+            <td>{{ entry.category }}</td>
+            <td>{{ entry.name }}</td>
+            <td>{{ entry.amount }}</td>
+            <td><a href="{% url 'expense_app:entry_detail' entry.id %}"><i class="fas fa-info-circle"></i></a></td>
+            <td><a href="{% url 'expense_app:entry_edit' pk=entry.id %}"><i class="far fa-edit"></i></a></td>
+            <td><a href="{% url 'expense_app:entry_delete' pk=entry.id %}"><i class="far fa-trash-alt"></i></a></td>
+        </tr>
+    {% endfor %}
+    </table>
+    <div class="row">
+        <div class="col-8 float-right">
+        <a class="btn btn-info" href="{% url 'expense_app:entry_add' %}" role="button">Add Expense</a>
+        </div>
+    </div>
+{% endblock %}

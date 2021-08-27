@@ -1,3 +1,7 @@
 .venv/
+.vscode/
 postgres/data/
 db.sqlite3
+static/fa/
+__pycache__/
+.DS_Store

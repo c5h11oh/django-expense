@@ -7,11 +7,15 @@ import datetime
 
 class ExpenseEntryForm(forms.Form):
     """add/edit an expense entry"""
-    type = forms.ModelChoiceField(queryset=Entry_type.objects.all(), label='What kind of transaction?')
-    category = forms.ModelChoiceField(queryset=Entry_type_category.objects.all(), label='What category?')
+    type = forms.ModelChoiceField(queryset=Entry_type.objects.all(), label='What kind of transaction?',
+        widget=forms.Select(attrs={'class' : 'browser-default'}))
+    category = forms.ModelChoiceField(queryset=Entry_type_category.objects.all(), label='What category?',
+        widget=forms.Select(attrs={'class' : 'browser-default'}))
     date = forms.DateField(label='When?')
-    withdraw_account = forms.ModelChoiceField(queryset=Account.objects.all(), label='withdraw from..')
-    save_account = forms.ModelChoiceField(queryset=Account.objects.all(), label='save to..')
+    withdraw_account = forms.ModelChoiceField(queryset=Account.objects.all(), label='withdraw from..',
+        widget=forms.Select(attrs={'class' : 'browser-default'}))
+    save_account = forms.ModelChoiceField(queryset=Account.objects.all(), label='save to..',
+        widget=forms.Select(attrs={'class' : 'browser-default'}))
     name = forms.CharField(max_length=40, label='What was it about?')
     amount = forms.DecimalField(max_digits=10, decimal_places=2)
     memo = forms.CharField(max_length=300, required=False, widget=forms.Textarea)

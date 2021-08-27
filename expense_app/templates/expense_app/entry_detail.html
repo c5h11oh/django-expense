@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+      <table class="table table-striped">
+        <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <th scope="row">ID</th>
+              <td>{{entry.id}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Date</th>
+              <td>{{entry.date}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Type</th>
+              <td>{{entry.type}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Category</th>
+              <td>{{entry.category}}</td>
+            <tr>
+              <th scope="row">Name</th>
+              <td>{{entry.name}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Account</th>
+              <td>{{entry.account}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Amount</th>
+              <td>{{entry.amount}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Memo</th>
+              <td>{{entry.memo}}</td>
+            </tr>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-2"></div>
+  </div>
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-8 float-right">
+      <a class="btn btn-primary" href="{% url 'expense_app:entry_edit' entry.id %}" role="button">Edit</a>
+      <a class="btn btn-info" href="{% url 'expense_app:entry_list' %}" role="button">Back</a>
+    </div>
+    <div class="col-2"></div>
+  </div>
+{% endblock %}
