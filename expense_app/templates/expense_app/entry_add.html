@@ -1,11 +1,17 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
+
+<div class="">
+    <a href="{% url 'expense_app:category_add' %}" class="btn btn-info">Add a category</a>
+    <a href="{% url 'expense_app:moneyaccount_add' %}" class="btn btn-info">Add an account</a>
+</div>
 <div class="input-field">
     <form action="" method="POST">
         {% csrf_token %}
         <table>
-        {{ form }}
+        {{ form.as_table }}
         </table>
         <input type="submit" value="Add expense entry">
     </form>
