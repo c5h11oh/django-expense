@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block more_js_css %}
+    <script src="{% static 'jquery/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'js/jquery.bootstrap.modal.forms.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+
+<div class="modal fade" tabindex="-1" role="dialog" id="modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content"></div>
+  </div>
+</div>
+
+{% comment %} <div class="input-field"> {% endcomment %}
+    <button id="create-account" class="btn btn-primary" type="button" name="button">Add account</button>
+{% comment %} </div> {% endcomment %}
+
+<script type="text/javascript">
+$(function() {
+    $("#create-account").modalForm({
+        formURL: "{% url 'expense_app:moneyaccount_add' %}"
+    });
+});
+</script>
+
+{% endblock %}
