@@ -1,13 +1,13 @@
-from unicodedata import category
 from django.core.exceptions import ValidationError
 from django.forms import widgets
 from django.utils.translation import ugettext_lazy as _
 from django import forms
+from bootstrap_datepicker_plus import DateTimePickerInput
 from .models import Account, Account_type, Entry, Entry_type, Entry_type_category
 # from bootstrap_modal_forms.forms import BSModalForm
 import datetime
 
-class MoneyAccountAddForm(forms.Form):
+class MoneyAccountForm(forms.Form):
     account_type = forms.ModelChoiceField(queryset=Account_type.objects.all(), label='Account type: ', widget=forms.Select())
     name = forms.CharField(max_length=40, label='Account name: ')
 
@@ -17,7 +17,7 @@ class ExpenseEntryForm(forms.Form):
         widget=forms.Select(attrs={'class' : 'browser-default'}))
     category = forms.ModelChoiceField(queryset=Entry_type_category.objects.all(), label='What category?',
         widget=forms.Select(attrs={'class' : 'browser-default'}))
-    date = forms.DateField(label='When?')
+    date = forms.DateField(label='When?', widget=DateTimePickerInput(format='%m/%d/%Y'))
     withdraw_account = forms.ModelChoiceField(queryset=Account.objects.all(), label='withdraw from..',
         widget=forms.Select(attrs={'class' : 'browser-default'}))
     save_account = forms.ModelChoiceField(queryset=Account.objects.all(), label='save to..',

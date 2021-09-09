@@ -6,8 +6,8 @@
 
 <form method="post">
   {% csrf_token %}
-  <button type="submit" class="btn btn-success">Delete</button>
-  <a class="btn btn-secondary" href="{% url 'expense_app:entry_list' %}" role="button">Go back</a>
+  <button type="submit" class="btn btn-danger">Delete</button>
+  <a class="btn btn-secondary" href="{% url 'expense_app:entry' %}" role="button">Go back</a>
 </form>
 
 {% endblock %}

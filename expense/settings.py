@@ -25,7 +25,10 @@ SECRET_KEY = 'django-insecure-wq#b0xn_5mhl8m*hi^7ad$v(6t#th&wl_@+&i-sw7e86+ca2n!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    "chwenimdeploy.azurewebsites.net",
+]
 
 
 # Application definition
@@ -37,10 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'bootstrap_modal_forms',
     'user_account',
     'expense_app',
+    'bootstrap4',
+    'bootstrap_datepicker_plus',
     # 'debug_toolbar',
+    # 'bootstrap_modal_forms',
 ]
 
 MIDDLEWARE = [
@@ -80,15 +85,15 @@ WSGI_APPLICATION = 'expense.wsgi.application'
 
 DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
 
-        'ENGINE': 'django.db.backends.postgresql',
-        'HOST': 'localhost',
-        'NAME': 'expense',
-        'USER': 'expense',
-        'PASSWORD': 'wq#b0xn_5mhl8m*hi^7ad(6t#th&wl_@+&i-sw7e86+ca2n!',
-        'PORT': '5847',
+        # 'ENGINE': 'django.db.backends.postgresql',
+        # 'HOST': 'localhost',
+        # 'NAME': 'expense',
+        # 'USER': 'expense',
+        # 'PASSWORD': 'wq#b0xn_5mhl8m*hi^7ad(6t#th&wl_@+&i-sw7e86+ca2n!',
+        # 'PORT': '5847',
 
     }
 }
@@ -148,3 +153,8 @@ LOGOUT_REDIRECT_URL = '/'
 INTERNAL_IPS = [
     '127.0.0.1',
 ]
+
+### in order to use bootstrap_datepicker_plus
+BOOTSTRAP4 = {
+    'include_jquery': True,
+}
