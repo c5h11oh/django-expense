@@ -1,0 +1,7 @@
+.venv/
+.vscode/
+postgres/
+.gitignore
+LICENSE
+db.sqlite3.old
+db.postgres*
